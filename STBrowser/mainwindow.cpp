@@ -24,16 +24,12 @@ void MainWindow::createBrowserWindow() {
     // 浏览器窗口信息
     CefWindowInfo window_info;
 
-    //window_info.SetAsPopup(NULL, "cefsimple");
     // 获取嵌入窗体的句柄
     HWND wnd = (HWND)this->centralWidget()->winId();
     //  CefWindowInfo cefWndInfo;
     CefRect winRect;
     QRect qtRect = this->rect();
-    //  winRect.left = qtRect.left();
-    //  winRect.top = qtRect.top();
-    //  winRect.right = qtRect.right();
-    //  winRect.bottom = qtRect.bottom();
+
     winRect.Set(qtRect.left(),qtRect.top(),qtRect.right()-qtRect.left(),qtRect.bottom()-qtRect.top());
 
 
@@ -52,5 +48,4 @@ void MainWindow::resizeEvent(QResizeEvent* event)
             ::MoveWindow(wnd, qtRect.x(), qtRect.y(), qtRect.width(), qtRect.height(), true);
         }
     }
-//    std::cout<<"resize"<<std::endl;
 }
