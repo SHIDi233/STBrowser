@@ -11,16 +11,18 @@ CONFIG += c++17
 SOURCES += \
     cef/simple_app.cc \
     cef/simple_handler.cc \
+    frame.cpp \
     main.cpp \
-    mainwindow.cpp
+    ocore.cpp
 
 HEADERS += \
     cef/simple_app.h \
     cef/simple_handler.h \
-    mainwindow.h
+    frame.h \
+    ocore.h
 
 FORMS += \
-    mainwindow.ui
+ ocore.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
