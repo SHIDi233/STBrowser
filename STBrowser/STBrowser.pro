@@ -11,19 +11,24 @@ CONFIG += c++17
 SOURCES += \
     cef/simple_app.cc \
     cef/simple_handler.cc \
-    frame.cpp \
     main.cpp \
     socore.cpp \
+    widgets/frame.cpp \
+    widgets/stab.cpp \
+    widgets/test.cpp \
     window.cpp
 
 HEADERS += \
     cef/simple_app.h \
     cef/simple_handler.h \
-    frame.h \
     socore.h \
+    widgets/frame.h \
+    widgets/stab.h \
+    widgets/test.h \
     window.h
 
 FORMS += \
+ widgets/frame.ui \
  window.ui
 
 # Default rules for deployment.
