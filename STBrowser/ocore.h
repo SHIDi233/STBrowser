@@ -2,7 +2,8 @@
 #define OCORE_H
 
 #include <QMainWindow>
-#include "frame.h"
+//#include "frame.h"
+#include "socore.h"
 
 namespace Ui {
 class OCore;
@@ -19,10 +20,16 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::OCore *ui;
     int x=0;
-    Frame* f;
+//    Frame* f;
+
+    SOCore* soc;
 
     void createPage(QString url);
 };

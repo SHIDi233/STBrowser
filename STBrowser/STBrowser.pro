@@ -13,13 +13,15 @@ SOURCES += \
     cef/simple_handler.cc \
     frame.cpp \
     main.cpp \
-    ocore.cpp
+    ocore.cpp \
+    socore.cpp
 
 HEADERS += \
     cef/simple_app.h \
     cef/simple_handler.h \
     frame.h \
-    ocore.h
+    ocore.h \
+    socore.h
 
 FORMS += \
  ocore.ui
