@@ -13,18 +13,18 @@ SOURCES += \
     cef/simple_handler.cc \
     frame.cpp \
     main.cpp \
-    ocore.cpp \
-    socore.cpp
+    socore.cpp \
+    window.cpp
 
 HEADERS += \
     cef/simple_app.h \
     cef/simple_handler.h \
     frame.h \
-    ocore.h \
-    socore.h
+    socore.h \
+    window.h
 
 FORMS += \
- ocore.ui
+ window.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

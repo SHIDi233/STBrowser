@@ -1,21 +1,20 @@
-﻿#ifndef OCORE_H
-#define OCORE_H
+﻿#ifndef WINDOW_H
+#define WINDOW_H
 
 #include <QMainWindow>
-//#include "frame.h"
 #include "socore.h"
 
 namespace Ui {
-class OCore;
+class Window;
 }
 
-class OCore : public QMainWindow
+class Window : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit OCore(QWidget *parent = nullptr);
-    ~OCore();
+    explicit Window(QWidget *parent = nullptr);
+    ~Window();
 
 private slots:
     void on_pushButton_clicked();
@@ -24,14 +23,14 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void requestPage(QString url);
+
 private:
-    Ui::OCore *ui;
-    int x=0;
-//    Frame* f;
+    Ui::Window *ui;
 
     SOCore* soc;
 
     void createPage(QString url);
 };
 
-#endif // OCORE_H
+#endif // WINDOW_H

@@ -1,5 +1,6 @@
 ﻿#include "socore.h"
 #include<QWidget>
+#include<QMessageBox>
 
 SOCore::SOCore(){
 
@@ -36,8 +37,18 @@ void SOCore::loaded() {
     std::cout<<"(SOCore)Msg:Chromium core has loaded"<<std::endl;
 }
 
+void SOCore::newPage(QString url){
+//    createPage(url);
+    std::cout<<"(SOC)Msg:New page from core"<<std::endl;
+    emit requestPage(url);
+}
+
 int SOCore::createPage(QWidget* parent, QString url){
-    CefRefPtr<SimpleHandler> handler(new SimpleHandler(false));
+    QMessageBox::StandardButton response = QMessageBox::question(nullptr, "标题", "外部创建接口被调用",
+                                                                    QMessageBox::Yes | QMessageBox::No);
+    handle = new SimpleHandler(false);
+    connect(handle, &SimpleHandler::newPage, this, &SOCore::newPage);
+    CefRefPtr<SimpleHandler> handler(handle);
     // 浏览器配置，
     CefBrowserSettings browser_settings;
     // 要打开的网址
@@ -60,5 +71,5 @@ int SOCore::createPage(QWidget* parent, QString url){
     // Create the first browser window.
     CefBrowserHost::CreateBrowser(window_info, handler, _url, browser_settings,
                                   nullptr, nullptr);
-    return 0;
+    return _h_id++;
 }

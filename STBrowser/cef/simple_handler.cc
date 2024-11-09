@@ -89,7 +89,8 @@ bool SimpleHandler::OnBeforePopup(CefRefPtr<CefBrowser> browser, //浏览器对�
     if (!target_url.empty())
     {
         //获取浏览器对象中的 主frame对象，然后加载url
-        browser->GetMainFrame()->LoadURL(target_url);
+//        browser->GetMainFrame()->LoadURL(target_url);
+        emit newPage(QString::fromStdString(target_url));
         return true;
     }
     return false;

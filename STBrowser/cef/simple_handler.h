@@ -1,7 +1,11 @@
 ﻿#include "include/cef_client.h"
 #include <list>
-class SimpleHandler : public CefClient,
-                      public CefLifeSpanHandler {
+#include<QObject>
+
+class SimpleHandler : public QObject,
+                      public CefClient,
+                      public CefLifeSpanHandler{
+    Q_OBJECT
  public:
   explicit SimpleHandler(bool use_views);
   ~SimpleHandler();
@@ -47,4 +51,7 @@ class SimpleHandler : public CefClient,
   bool is_closing_;
 
   IMPLEMENT_REFCOUNTING(SimpleHandler);
+
+signals:
+    void newPage(QString url);
 };
